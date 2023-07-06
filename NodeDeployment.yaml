@@ -1,0 +1,20 @@
+---  
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Node-deployment
+  app: node
+spec:
+  replicas: 3
+  selector:
+   matchLabels:
+     app: node
+  template: 
+    metadata:
+      app: node
+    spec:
+    - containers: 
+      name: node 
+      image : shreyakhagan/django-todo:latest
+      ports:
+      - containerPort: 8000
